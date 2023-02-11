@@ -39,13 +39,7 @@ public class ChatterbookController {
         userList = Arrays.asList(luis, sue, timothy, george, arturo, mariella, paolo, tri, jane, carol, carl);
 
     }
-/*
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String getHome() {
-        return "Home";
-    }
 
- */
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public List<User> getUsers() {
         return userList;
