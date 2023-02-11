@@ -45,9 +45,14 @@ public class ChatterbookController {
         return userList;
     }
 
-    @RequestMapping(value = "/users/{index}", method = RequestMethod.GET)
-        public User getUserByIndex(@PathVariable int index){
-            return userList.get(index);
+    @RequestMapping(value = "/users/{name}", method = RequestMethod.GET)
+        public User getUserByIndex(@PathVariable String name){
+            for(User u: userList){
+                if(u.getName().equals(name)){
+                    return u;
+                }
+            }
+            return null;
 
     }
     @RequestMapping(value = "/users/name/{name}", method = RequestMethod.GET)
