@@ -124,4 +124,26 @@ public class CustomerRepositoryTest {
         Optional<Customer> customer1 = customerRepo.findById(customer.getId());
         assertFalse(customer1.isPresent());
     }
+
+    @Test
+    public void getCustomerById() {
+        Customer customer = new Customer();
+        customer.setFirstName("John B");
+        customer.setLastName("Routledge");
+        customer.setCompany("routledgeB@gmail.com");
+        customer.setPhone("123-456-7890");
+        customer.setCompany("Pogues");
+        customer.setAddress1("1234 Poguelandia dr");
+        customer.setAddress2("Apt 5210");
+        customer.setCity("North Carolina");
+        customer.setState("NC");
+        customer.setPostal("20947");
+        customer.setCountry("USA");
+        customer.setId(1);
+        customerRepo.save(customer);
+        customerRepo.findById(customer.getId());
+
+        Optional<Customer> customer1 = customerRepo.findById(customer.getId());
+        assertTrue(customer1.isPresent());
+    }
 }

@@ -162,6 +162,29 @@ public class CustomerControllerTest{
                 .andExpect(status().isNoContent());
     }
 
+    @Test
+    public void shouldGetCustomerById() throws Exception{
+        Customer customer = new Customer();
+        customer.setFirstName("John B");
+        customer.setLastName("Routledge");
+        customer.setCompany("routledgeB@gmail.com");
+        customer.setPhone("123-456-7890");
+        customer.setCompany("Pogues");
+        customer.setAddress1("1234 Poguelandia dr");
+        customer.setAddress2("Apt 5210");
+        customer.setCity("North Carolina");
+        customer.setState("NC");
+        customer.setPostal("20947");
+        customer.setCountry("USA");
+        customer.setId(1);
+
+        doReturn(Optional.of(customer)).when(customerRepo).findById(customer.getId());
+        mockMvc.perform(get("/customers/".concat(String.valueOf(customer.getId()))))
+                .andDo(print())
+                .andExpect(status().isOk());
+
+
+    }
 
 
 }
