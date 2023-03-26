@@ -3,9 +3,9 @@ type Book {
     id: Int!
     isbn: String!
     publishDate: String!
-    authorId: Int!
+    author: Author!
     title: String!
-    publisherId: Int!
+    publisher: Publisher!
     price: Float!
 }
 
