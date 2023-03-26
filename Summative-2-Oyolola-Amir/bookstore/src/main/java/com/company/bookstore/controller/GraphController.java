@@ -44,5 +44,17 @@ public class GraphController {
         Optional<Book> bookOptional = bookRepository.findById(id);
         return bookOptional.orElse(null);
     }
+    
+    @SchemaMapping
+    public Author author(Book book) {
+        Optional<Author> returnVal = authorRepository.findById(book.getAuthorId());
+        return returnVal.orElse(null);
+    }
+
+    @SchemaMapping
+    public Publisher publisher(Book book) {
+        Optional<Publisher> returnVal = publisherRepository.findById(book.getPublisherId());
+        return returnVal.orElse(null);
+    }
 
 }
